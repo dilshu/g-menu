@@ -11,7 +11,7 @@
         const style = document.createElement('style');
         style.innerHTML = `
             .dilshu-menu-btn {
-                position: fixed; top: 20px; right: 20px;
+                position: fixed; top: 20px; left: 20px;
                 display: grid; grid-template-columns: repeat(3, 4px); gap: 3px;
                 cursor: pointer; padding: 12px; background: white; border-radius: 50%;
                 box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 10000;
@@ -19,7 +19,7 @@
             .dilshu-menu-btn span { width: 4px; height: 4px; background: #5f6368; border-radius: 50%; }
             
             #dilshu-dialog {
-                display: none; position: fixed; right: 20px; top: 70px;
+                display: none; position: fixed; left: 20px; top: 70px;
                 width: 280px; background: white; border-radius: 12px;
                 box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 9999; padding: 15px;
                 border: 1px solid #eee; font-family: Arial, sans-serif;
