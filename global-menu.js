@@ -53,6 +53,9 @@
                     <a href="https://dilshu.github.io/vcard" target="_blank" class="item">
                         <img src="https://cdn-icons-png.flaticon.com/128/15229/15229878.png"> <span>Vcard</span>
                     </a>
+                    <a href="https://dilshu.github.io/docbuilder/" target="_blank" class="item">
+                        <img src="https://cdn-icons-png.flaticon.com/128/9746/9746243.png"> <span>DocBuilder</span>
+                    </a>
                     <a href="https://github.com/dilshu" target="_blank" class="item">
                         <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"> <span>GitHub</span>
                     </a>
