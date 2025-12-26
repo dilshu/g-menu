@@ -1,7 +1,6 @@
 /* global-menu.js */
 (function() {
     const initMenu = function() {
-        // body അല്ലെങ്കിൽ head ലഭ്യമല്ലെങ്കിൽ അല്പം കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക
         if (!document.body || !document.head) {
             setTimeout(initMenu, 100);
             return;
@@ -13,9 +12,19 @@
             .dilshu-menu-btn {
                 position: fixed; top: 20px; left: 20px;
                 display: grid; grid-template-columns: repeat(3, 4px); gap: 3px;
-                cursor: pointer; padding: 12px; background: white; border-radius: 50%;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 10000;
+                cursor: pointer; padding: 12px; 
+                background: transparent; /* ആദ്യം ട്രാൻസ്പരന്റ് ആക്കി */
+                border-radius: 50%;
+                z-index: 10000;
+                transition: background 0.3s, box-shadow 0.3s; /* സ്മൂത്ത് ആയി മാറാൻ */
             }
+            
+            /* ക്ലിക്ക് ചെയ്യുമ്പോൾ വൈറ്റ് ബാക്ക്ഗ്രൗണ്ട് വരാനുള്ള ക്ലാസ്സ് */
+            .dilshu-menu-btn.active {
+                background: white; 
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            }
+
             .dilshu-menu-btn span { width: 4px; height: 4px; background: #5f6368; border-radius: 50%; }
             
             #dilshu-dialog {
@@ -72,19 +81,28 @@
 
         if(btn && dialog) {
             btn.onclick = (e) => {
-                dialog.style.display = dialog.style.display === 'block' ? 'none' : 'block';
+                const isOpen = dialog.style.display === 'block';
+                dialog.style.display = isOpen ? 'none' : 'block';
+                
+                // ബട്ടണിന്റെ ബാക്ക്ഗ്രൗണ്ട് മാറ്റാൻ 'active' ക്ലാസ്സ് ഉപയോഗിക്കുന്നു
+                if (isOpen) {
+                    btn.classList.remove('active');
+                } else {
+                    btn.classList.add('active');
+                }
+                
                 e.stopPropagation();
             };
 
             window.addEventListener('click', (event) => {
                 if (!dialog.contains(event.target) && event.target !== btn) {
                     dialog.style.display = 'none';
+                    btn.classList.remove('active'); // പുറത്ത് ക്ലിക്ക് ചെയ്യുമ്പോൾ വൈറ്റ് ബാക്ക്ഗ്രൗണ്ട് മാറ്റുന്നു
                 }
             });
         }
     };
 
-    // പേജ് ലോഡ് ആകുമ്പോൾ ഫങ്ക്ഷൻ പ്രവർത്തിപ്പിക്കുക
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initMenu);
     } else {
