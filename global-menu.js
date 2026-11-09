@@ -50,7 +50,7 @@
             </div>
             <div id="dilshu-dialog">
                 <div class="menu-container">
-                    <a href="https://wa.me/918592829157" target="_blank" class="item">
+                    <a href="https://wa.me/971551618462" target="_blank" class="item">
                         <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"> <span>WhatsApp</span>
                     </a>
                     <a href="https://dilshu.github.io/my_shop/" target="_blank" class="item">
